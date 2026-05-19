@@ -47,6 +47,9 @@ Thumbs.db
 CLAUDE.md
 .claude/
 
+# Planning files
+PLAN_PRUEBA_DVP.md
+
 # Environment secrets
 src/environments/environment.ts
 src/environments/environment.development.ts
