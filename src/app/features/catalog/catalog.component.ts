@@ -27,13 +27,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
       <div
         class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm"
       >
-        <div class="max-w-7xl mx-auto px-4 py-4 space-y-4">
+        <div class="max-w-7xl mx-auto px-4 pt-4 pb-4">
           <app-search-bar [value]="searchTerm()" (searched)="searchTerm.set($event)" />
-          <app-category-filter
-            [categories]="categories()"
-            [activeCategory]="selectedCategory()"
-            (selected)="selectedCategory.set($event)"
-          />
+          <div class="mt-6">
+            <app-category-filter
+              [categories]="categories()"
+              [activeCategory]="selectedCategory()"
+              (selected)="selectedCategory.set($event)"
+            />
+          </div>
         </div>
       </div>
 
