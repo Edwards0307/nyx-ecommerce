@@ -12,9 +12,9 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     const cached = this.cache();
     if (cached) return of(cached);
-    return this.http.get<Product[]>(`${this.baseUrl}/products`).pipe(
-      tap(products => this.cache.set(products))
-    );
+    return this.http
+      .get<Product[]>(`${this.baseUrl}/products`)
+      .pipe(tap((products) => this.cache.set(products)));
   }
 
   getCategories(): Observable<Category[]> {

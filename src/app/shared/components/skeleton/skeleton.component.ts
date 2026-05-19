@@ -18,7 +18,7 @@ import { Component, input } from '@angular/core';
         </div>
       }
     </div>
-  `
+  `,
 })
 export class SkeletonComponent {
   count = input<number>(8);

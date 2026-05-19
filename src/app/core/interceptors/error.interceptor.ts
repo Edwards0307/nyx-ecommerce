@@ -6,6 +6,6 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: HttpErrorResponse) => {
       console.error('HTTP Error:', error.status, error.message);
       return throwError(() => error);
-    })
+    }),
   );
 };

@@ -24,7 +24,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   ],
   template: `
     <div class="min-h-screen bg-gray-50">
-      <div class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+      <div
+        class="sticky top-16 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm"
+      >
         <div class="max-w-7xl mx-auto px-4 py-3 space-y-3">
           <app-search-bar [value]="searchTerm()" (searched)="searchTerm.set($event)" />
           <app-category-filter
@@ -61,12 +63,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     </div>
 
     @if (selectedProduct()) {
-      <app-product-detail
-        [product]="selectedProduct()!"
-        (close)="selectedProduct.set(null)"
-      />
+      <app-product-detail [product]="selectedProduct()!" (close)="selectedProduct.set(null)" />
     }
-  `
+  `,
 })
 export class CatalogComponent implements OnInit {
   private productService = inject(ProductService);
@@ -83,8 +82,9 @@ export class CatalogComponent implements OnInit {
   filteredProducts = computed(() => {
     const term = this.searchTerm().toLowerCase().trim();
     const cat = this.selectedCategory();
-    return this.products().filter(p => {
-      const matchesSearch = !term || p.title.toLowerCase().includes(term) || p.category.toLowerCase().includes(term);
+    return this.products().filter((p) => {
+      const matchesSearch =
+        !term || p.title.toLowerCase().includes(term) || p.category.toLowerCase().includes(term);
       const matchesCategory = !cat || p.category === cat;
       return matchesSearch && matchesCategory;
     });
@@ -99,18 +99,20 @@ export class CatalogComponent implements OnInit {
     this.errorMessage.set('');
 
     this.productService.getProducts().subscribe({
-      next: products => {
+      next: (products) => {
         this.products.set(products);
         this.isLoading.set(false);
       },
       error: () => {
-        this.errorMessage.set('No se pudo cargar el catálogo. Verifica tu conexión e inténtalo de nuevo.');
+        this.errorMessage.set(
+          'No se pudo cargar el catálogo. Verifica tu conexión e inténtalo de nuevo.',
+        );
         this.isLoading.set(false);
-      }
+      },
     });
 
     this.productService.getCategories().subscribe({
-      next: cats => this.categories.set(cats)
+      next: (cats) => this.categories.set(cats),
     });
   }
 

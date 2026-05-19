@@ -7,30 +7,24 @@ export class CartService {
 
   items = signal<CartItem[]>(this.loadFromStorage());
 
-  totalItems = computed(() =>
-    this.items().reduce((acc, item) => acc + item.quantity, 0)
-  );
+  totalItems = computed(() => this.items().reduce((acc, item) => acc + item.quantity, 0));
 
   totalPrice = computed(() =>
-    this.items().reduce((acc, item) => acc + item.product.price * item.quantity, 0)
+    this.items().reduce((acc, item) => acc + item.product.price * item.quantity, 0),
   );
 
   add(product: Product): void {
     const current = this.items();
-    const existing = current.find(i => i.product.id === product.id);
+    const existing = current.find((i) => i.product.id === product.id);
     const updated = existing
-      ? current.map(i =>
-          i.product.id === product.id
-            ? { ...i, quantity: i.quantity + 1 }
-            : i
-        )
+      ? current.map((i) => (i.product.id === product.id ? { ...i, quantity: i.quantity + 1 } : i))
       : [...current, { product, quantity: 1 }];
     this.items.set(updated);
     this.saveToStorage(updated);
   }
 
   remove(productId: number): void {
-    const updated = this.items().filter(i => i.product.id !== productId);
+    const updated = this.items().filter((i) => i.product.id !== productId);
     this.items.set(updated);
     this.saveToStorage(updated);
   }
@@ -40,9 +34,7 @@ export class CartService {
       this.remove(productId);
       return;
     }
-    const updated = this.items().map(i =>
-      i.product.id === productId ? { ...i, quantity } : i
-    );
+    const updated = this.items().map((i) => (i.product.id === productId ? { ...i, quantity } : i));
     this.items.set(updated);
     this.saveToStorage(updated);
   }

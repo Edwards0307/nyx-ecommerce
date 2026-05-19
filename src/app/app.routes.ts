@@ -5,11 +5,10 @@ export const routes: Routes = [
   {
     path: 'catalog',
     loadComponent: () =>
-      import('./features/catalog/catalog.component').then(m => m.CatalogComponent)
+      import('./features/catalog/catalog.component').then((m) => m.CatalogComponent),
   },
   {
     path: 'cart',
-    loadComponent: () =>
-      import('./features/cart/cart.component').then(m => m.CartComponent)
-  }
+    loadComponent: () => import('./features/cart/cart.component').then((m) => m.CartComponent),
+  },
 ];
