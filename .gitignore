@@ -42,3 +42,11 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Claude Code
+CLAUDE.md
+.claude/
+
+# Environment secrets
+src/environments/environment.ts
+src/environments/environment.development.ts
