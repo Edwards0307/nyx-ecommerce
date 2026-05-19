@@ -18,7 +18,7 @@ Mini tienda construida con Angular 21 standalone + TailwindCSS como parte de la 
 ## Cómo correrlo localmente
 
 ```bash
-git clone https://github.com/edwards-ardila/nyx-ecommerce.git
+git clone https://github.com/Edwards0307/nyx-ecommerce.git
 cd nyx-ecommerce
 npm install
 ```
@@ -28,7 +28,7 @@ Antes de levantar el servidor, agrega tu Claude API Key en `src/environments/env
 ```ts
 export const environment = {
   production: false,
-  claudeApiKey: 'TU_API_KEY_AQUI'
+  claudeApiKey: 'TU_API_KEY_AQUI',
 };
 ```
 
@@ -96,8 +96,8 @@ Un usuario que entiende rápido por qué ese producto le conviene, compra más r
 
 ## Deploy
 
-🔗 [Ver demo en Vercel](https://nyx-ecommerce.vercel.app) *(link disponible tras el deploy)*
+🔗 [Ver demo en Vercel](https://nyx-ecommerce.vercel.app/catalog)
 
 ---
 
-*Edwards Ardila — Prueba Técnica DVP / NYX 2026*
+_Edwards Ardila — Prueba Técnica DVP / NYX 2026_
