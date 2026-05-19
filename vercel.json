@@ -1,0 +1,5 @@
+{
+  "buildCommand": "sed -i 's/REPLACE_CLAUDE_KEY/'\"$CLAUDE_API_KEY\"'/' src/environments/environment.prod.ts && ng build",
+  "outputDirectory": "dist/nyx-ecommerce/browser",
+  "framework": "angular"
+}
